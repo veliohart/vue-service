@@ -5,7 +5,15 @@ import Hello from '@/components/Hello'
 Vue.use(Router)
 
 const User = {
-  template: '<div> user </div>'
+  template: `
+    <div class="user">
+      <h2>User {{ $route.params.id }}</h2>
+      <router-view></router-view>
+    </div>
+  `
+}
+const Details = {
+  template: '<div> details!!! </div>'
 }
 
 export default new Router({
@@ -19,7 +27,13 @@ export default new Router({
       path: '/user/:id',
       name: 'user',
       component: User,
-      children: []
+      children: [
+        {
+          path: 'details',
+          name: 'Details',
+          component: Details
+        }
+      ]
     }
   ]
 })
