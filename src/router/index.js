@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/pages/Hello'
+import Root from '@/pages/Root'
 
 Vue.use(Router)
 
@@ -17,15 +18,16 @@ const Details = {
 }
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'Root',
-      redirect: '/about'
+      component: Root
     },
     {
       path: '/about',
-      name: 'Hello',
+      name: 'about',
       component: Hello
     },
     {
