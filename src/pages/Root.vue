@@ -14,6 +14,21 @@
       </md-toolbar>
     </md-whiteframe>
 
+    <md-whiteframe md-tag="section" class="main-content">
+      <md-layout md-gutter>
+        <md-layout md-column md-gutter>
+          <md-layout md-flex="20"> 1 </md-layout>
+          <md-layout>2</md-layout>
+        </md-layout>
+
+        <md-layout md-column md-gutter>
+          <md-layout md-flex="50">3</md-layout>
+          <md-layout>4</md-layout>
+          <md-layout>5</md-layout>
+        </md-layout>
+      </md-layout>
+    </md-whiteframe>
+
     <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')">
       <md-toolbar class="md-large">
         <div class="md-toolbar-container">
@@ -21,7 +36,6 @@
         </div>
       </md-toolbar>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
     </md-sidenav>
   </div>
 </template>
@@ -46,6 +60,8 @@
 </script>
 
 <style>
- 
+.main-content {
+  margin: 15px;
+}
 </style>
 
