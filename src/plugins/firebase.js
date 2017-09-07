@@ -1,4 +1,6 @@
-export const initFireBase = () => {
+const firebase = {}
+
+firebase.install = function (Vue, options) {
   const $body = document.body
   const config = {
     apiKey: 'AIzaSyDC5_d1hyYBDJo-t7VoD26QV2YN5bke9lk',
@@ -11,12 +13,12 @@ export const initFireBase = () => {
   const $gfbs = document.createElement('script')
   $gfbs.onload = (e) => {
     window.firebase.initializeApp(config)
+    Vue.prototype.$firebase = window.firebase
+    console.log('Vue', Vue)
   }
   $gfbs.type = 'text/javascript'
   $gfbs.src = 'https://www.gstatic.com/firebasejs/4.3.0/firebase.js'
   $body.append($gfbs)
 }
 
-export const beforeCreate = () => {
-  // initFireBase()
-}
+export {firebase}

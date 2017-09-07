@@ -5,11 +5,13 @@ import VueMaterial from 'vue-material'
 import App from './App'
 import router from './router'
 import {beforeCreate, created} from './app-hooks'
+import {firebase} from './plugins/firebase'
 
 import 'vue-material/dist/vue-material.css'
 
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
+Vue.use(firebase)
 Vue.material.registerTheme('default', {
   primary: 'blue',
   accent: 'red',
@@ -18,7 +20,7 @@ Vue.material.registerTheme('default', {
 })
 
 /* eslint-disable no-new */
-new Vue({
+const instance = new Vue({
   el: '#app',
   router,
   template: '<App/>',
@@ -26,3 +28,5 @@ new Vue({
   beforeCreate,
   created
 })
+
+console.log(instance)
