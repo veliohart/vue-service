@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import App from './App'
 import router from './router'
+import {beforeCreate, created} from './app-hooks'
 
 import 'vue-material/dist/vue-material.css'
 
@@ -21,5 +22,7 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  beforeCreate,
+  created
 })

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/pages/Hello'
 import Root from '@/pages/Root'
+import SIGN_IN_ROUTE from '@/pages/SignIn/SignIn.route'
+import SIGN_UP_ROUTE from '@/pages/SignUp/SignUp.route'
 
 Vue.use(Router)
 
@@ -25,6 +27,8 @@ export default new Router({
       name: 'Root',
       component: Root
     },
+    SIGN_IN_ROUTE,
+    SIGN_UP_ROUTE,
     {
       path: '/about',
       name: 'about',
