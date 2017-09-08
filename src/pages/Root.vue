@@ -1,21 +1,17 @@
 <template>
   <md-whiteframe md-tag="section" class="main-content">
-    <md-layout md-gutter="10">
-      <md-layout md-column md-flex-xsmall="100" md-flex-small="50">
-        <div>
-          <md-whiteframe md-flex-xsmall="100">
-            <md-button class="md-raised md-primary" v-on:click="signinBase()">SignIn</md-button>
-            <md-button class="md-raised md-primary" v-on:click="signupBase()">SignUp</md-button>
-            <md-button class="md-raised md-primary" v-on:click="testBase()">FIREBASE set</md-button>
-            <md-button class="md-raised md-primary" v-on:click="testBaseGet()">FIREBASE get</md-button>
-          </md-whiteframe>
-        </div>
+    <md-layout md-gutter="16">
+      <md-layout md-column md-gutter>
+          <md-button class="md-raised md-primary" v-on:click="signinBase()">SignIn</md-button>
+          <md-button class="md-raised md-primary" v-on:click="signupBase()">SignUp</md-button>
+          <md-button class="md-raised md-primary" v-on:click="testBase()">FIREBASE set</md-button>
+          <md-button class="md-raised md-primary" v-on:click="testBaseGet()">FIREBASE get</md-button>
       </md-layout>
 
-      <md-layout md-column md-flex-xsmall="100" md-flex-small="50">
-        <md-layout md-column md-flex="50">
+      <md-layout>
+        <md-layout md-column>
           <md-list>
-            <md-whiteframe md-flex="100" class="" v-for="user in data" v-bind:key="user.date">
+            <md-whiteframe md-flex="100" v-for="user in data" v-bind:key="user.date">
               <md-list-item>
                 <md-avatar>
                   <img src="https://placeimg.com/40/40/people/5" alt="People">
@@ -48,7 +44,6 @@
       }
     },
     mounted: function () {
-      console.log(this)
       this.$fireDB.ref('users')
           .on('value', (snapshot) => {
             console.log('snapshot.val()', snapshot.val())
@@ -64,14 +59,6 @@
             email: 'email',
             profilePicture: 'imageUrl',
             stamp: stamp
-          })
-      },
-      testBaseGet () {
-        console.log(this)
-        this.$fireDB.ref('users/')
-          .on('value', (snapshot) => {
-            console.log('snapshot.val()', snapshot.val())
-            this.data = snapshot.val()
           })
       },
       signupBase () {
