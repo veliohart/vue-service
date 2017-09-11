@@ -8,18 +8,6 @@ import LAYOUT_ROUTE from '@/pages/layout/layout.route'
 
 Vue.use(Router)
 
-const User = {
-  template: `
-    <div class="user">
-      <h2>User {{ $route.params.id }}</h2>
-      <router-view></router-view>
-    </div>
-  `
-}
-const Details = {
-  template: '<div> details!!! </div>'
-}
-
 export default new Router({
   mode: 'history',
   routes: [
@@ -35,18 +23,6 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: Hello
-    },
-    {
-      path: '/user/:id',
-      name: 'user',
-      component: User,
-      children: [
-        {
-          path: 'details',
-          name: 'Details',
-          component: Details
-        }
-      ]
     }
   ]
 })
